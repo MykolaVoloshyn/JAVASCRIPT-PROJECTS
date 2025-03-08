@@ -6,6 +6,7 @@
 // }
 
 function isAdult() {
+    //Checks if the user is older then 18 year and assigns the appropriate value to the element with the id "vote"
     var age, canVote;
     age = document.getElementById("age").value;
     canVote = age > 17 ? "You can vote!" : "You can't vote!";
@@ -13,6 +14,7 @@ function isAdult() {
 }
 
 function Vehicle(make, model, year, color) {
+    //An object constructor
     this.Vehicle_Make = make;
     this.Vehicle_Model = model;
     this.Vehicle_Year = year;
@@ -24,6 +26,7 @@ var Emily = new Vehicle("Jeep", "Trial Hawk", 2019, "White and Black");
 var Erik = new Vehicle("Ford", "Pinto", 1971, "Mustard");
 
 function myFunction() {
+    //Displays the fields of the Class Erik within the element with the id "keywords-and-constructions"
     document.getElementById("keywords-and-constructions").innerHTML =
         "Erik drives a " +
         Erik.Vehicle_Color +
@@ -35,6 +38,7 @@ function myFunction() {
 }
 
 function Person(first, last, age, eyecolor) {
+    //An object constructor
     this.firstName = first;
     this.lastName = last;
     this.age = age;
@@ -42,6 +46,7 @@ function Person(first, last, age, eyecolor) {
 var Lily = new Person("Lily", "Oldrin", 28);
 
 function showInfo() {
+    //Displays the fields of the Class Lily within the element with the id "new-and-this"
     document.getElementById("new-and-this").innerHTML =
         Lily.firstName +
         " " +
@@ -52,11 +57,11 @@ function showInfo() {
 }
 
 function countFunction() {
-    document.getElementById("nested-function").innerHTML = count();
+    document.getElementById("nested-function").innerHTML = count(); //Displays result of count function within the element with the id "new-and-this"
     function count() {
-        var startingPoint = Math.random();
+        var startingPoint = Math.random(); //Assign a random number to the variable
         const multiplyByHundret = () => {
-            startingPoint *= 100;
+            startingPoint *= 100; //Multiplies the variable by 100
         };
         multiplyByHundret();
         return startingPoint;
