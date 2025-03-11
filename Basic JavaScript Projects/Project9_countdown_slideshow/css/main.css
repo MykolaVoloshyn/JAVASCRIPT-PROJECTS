@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+.slideshow-container {
+    border: 1px solid;
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+
+.my-slydes {
+    display: none; /* Hides slydes while they're not active */
+}
+
+img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/*Number text (1/4 etc)*/
+.number-text,
+.caption-text {
+    position: absolute;
+    padding: 8px 12px;
+    color: white;
+    font-size: 12px;
+}
+
+.number-text {
+    top: 0;
+    font-size: 22px;
+}
+
+.caption-text {
+    bottom: 0;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    padding: 16px;
+    width: auto;
+    border-radius: 0 3px 3px 0;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    transition: 0.6 ease;
+    user-select: none; /* what for?*/
+    cursor: pointer;
+}
+
+/*Moves the right button to the right side*/
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/*Adds a black background color with a little bit see-through on hover*/
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dots {
+    text-align: center;
+}
+
+.dot {
+    display: inline-block;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #bbb;
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5 s;
+}
