@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Running JavaScript in the Console</title>
+</head>
+
+<body>
+    <p id="global-variables" onclick="global()">Global - click here!</p>
+    <p id="local-variables" onclick="local()">Local - click here!</p>
+    <p id="concat" onclick="concatenate()">Click here for a concatenated sentence</p>
+    <hr>
+    <button onclick="newCourse()">Click here for a new course</button>
+    <p id="display-course"></p>
+    <hr>
+    <p id="display-age"></p>
+
+    <script>
+        //a and b are global variables that can be edited in the console
+        let a = 3;
+        let b = 4;
+
+        function global() {
+            result = a + b;
+            document.getElementById('global-variables').innerHTML = "Global variable a (" + a + ") plus global variable b (" + b + ") equals " + result;
+        }
+
+        function local() {
+            let c = 4;
+            let d = 3;
+            result = c + d;
+            document.getElementById('local-variables').innerHTML = 'Local variable c (' + c + ') plus local variable d (' + d + ') equals ' + result;
+
+        }
+
+        //Declare values for sentence1 and sentence2 2 in the console
+        let sentence1;
+        let sentence2;
+
+        function concatenate() {
+            //Concatenate sentence1 and sentence2 using the .concat() method
+            let concatSentence = sentence1.concat(sentence2);
+
+            //Display result on the webpage
+            document.getElementById('concat').innerHTML = concatSentence;
+
+            //Display result in the console
+            console.log(concatSentence);
+        }
+
+        //Creates a couse object constructor
+        function Course(name, type, duration) {
+            this.courseName = "Todey's new course is: " + name + "<br>";
+            this.courseType = "Type: " + type + "<br>";
+            this.courseDuration = "Course lenght: " + duration + "hours";
+        }
+
+        let js = new Course('JavaScript', 'Code', 55);
+        let py = new Course('Python', 'Code', 90);
+
+        //Get user input and calculate the age based on the year
+        let year = prompt('Type in the year you were born');
+        let yearNow = new Date().getFullYear();
+        let age = Math.floor(yearNow - year);
+    </script>
+</body>
+
+</html>
