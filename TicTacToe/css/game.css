@@ -1,0 +1,36 @@
+/*This container includes our table and our canvas*/
+.container {
+    /*This property sets the width of our container*/
+    width: 608px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #646c77;
+    margin: 15px;
+}
+
+table {
+    /*This property collapses table border into 1 border*/
+    border-collapse: collapse;
+    /*This hides outer borders on table*/
+    border-style: hidden;
+}
+
+td {
+    background-size: 200px 200px;
+    border: 10px solid #646c77;
+    padding: 0;
+    width: 200px;
+    height: 200px;
+    filter: contrast(3);
+    cursor: pointer;
+}
+
+canvas {
+    position: absolute;
+    z-index: 10;
+    /*This property makes our canvas invisible*/
+    pointer-events: none;
+}
