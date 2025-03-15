@@ -2,6 +2,8 @@ let activePlayer = "X"; //Keeps track of whose turn it is
 
 let selectSquares = []; //Stores an array of moves to determine win condition
 
+let animationLoop;
+
 function checkIfSquareIsEmpty(squareNumber) {
     /*Goes through the selectSquares array and checks if chosen square number
     is not in the array*/
@@ -142,7 +144,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
     //This function interacts with the canvas
     function animateLineDrawing() {
         //This variable creates a loop
-        const animationLoop = requestAnimationFrame(animateLineDrawing);
+        animationLoop = requestAnimationFrame(animateLineDrawing);
         //Clears content from the last loop iteration
         canvasContent.clearRect(0, 0, 608, 608);
         canvasContent.beginPath();
@@ -170,9 +172,9 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
 
     //This function clears our canvas after win line was drawn
     function clear() {
-        const animationLine = requestAnimationFrame(clear); //Starts animation loop
+        const animationLoop = requestAnimationFrame(clear); //Starts animation loop
         canvasContent.clearRect(0, 0, 608, 608); // Clears canvas
-        cancelAnimationFrame(animationLine); //Stops animation loop
+        cancelAnimationFrame(animationLoop); //Stops animation loop
     }
 
     disableClick(); //Disallows cleck while the win sound is playing
@@ -189,6 +191,9 @@ function resetGame() {
         let square = document.getElementById(String(i));
         square.style.backgroundImage = "";
     }
-
+    cancelAnimationFrame(animationLoop);
+    const canvas = document.getElementById("win-lines");
+    const c = canvas.getContext("2d");
+    c.clearRect(0, 0, 608, 608);
     selectSquares = [];
 }
