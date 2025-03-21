@@ -1,0 +1,2 @@
+<h1>AJAX</h1>
+<p>You've used Ajax to update inforamtion</p>
