@@ -2,8 +2,6 @@ let activePlayer = "X"; //Keeps track of whose turn it is
 
 let selectSquares = []; //Stores an array of moves to determine win condition
 
-let animationLoop;
-
 function checkIfSquareIsEmpty(squareNumber) {
     /*Goes through the selectSquares array and checks if chosen square number
     is not in the array*/
@@ -166,7 +164,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         if (x1 <= x2 && y1 >= y2) {
             if (x < x2) x += 10;
             if (y > y2) y -= 10;
-            if (x > x2 && y <= y2) cancelAnimationFrame(animationLoop);
+            if (x >= x2 && y <= y2) cancelAnimationFrame(animationLoop);
         }
     }
 
@@ -191,9 +189,5 @@ function resetGame() {
         let square = document.getElementById(String(i));
         square.style.backgroundImage = "";
     }
-    cancelAnimationFrame(animationLoop);
-    const canvas = document.getElementById("win-lines");
-    const c = canvas.getContext("2d");
-    c.clearRect(0, 0, 608, 608);
     selectSquares = [];
 }
